@@ -13,7 +13,7 @@ public class UsuarioServiceTest
 {
    
     private static DbContextOptions<PostulacionDocenteContext> dbContextOptions = new DbContextOptionsBuilder<PostulacionDocenteContext>()
-        .UseInMemoryDatabase(databaseName: "MateriaDbTest")
+        .UseInMemoryDatabase(databaseName: "UsuarioDbTest")
         .Options;
     private PostulacionDocenteContext context;
     private IUsuarioService _service;

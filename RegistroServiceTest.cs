@@ -7,7 +7,7 @@ public class RegistroServiceTest
 {
    
     private static DbContextOptions<PostulacionDocenteContext> dbContextOptions = new DbContextOptionsBuilder<PostulacionDocenteContext>()
-        .UseInMemoryDatabase(databaseName: "MateriaDbTest")
+        .UseInMemoryDatabase(databaseName: "RegistroDbTest")
         .Options;
     private PostulacionDocenteContext context;
     private IRegistroService _service;
@@ -233,6 +233,28 @@ public class RegistroServiceTest
         //Validacion
         Assert.That(!registrado);
         Assert.That(mensaje, Is.EqualTo("El email, el numero de telefono o el carnet de identidad ya esta en uso. Intentalo otra vez"));
+    }
+
+    [Test]
+    public void RegistrarJefeConCarrerasNoRegistradasTest()
+    {
+        //Configuracion
+        JefeCarreraRegistroDTO nuevoJefe = new JefeCarreraRegistroDTO {
+            Nombre = "Juan Martinez",
+            Telefono = "77112253",
+            CI = "12345612",
+            FechaNacimiento = DateTime.Now.AddMonths(-22),
+            Correo = "juan@gmail.com",
+            Contrasenha = "12345",
+            Carreras = new List<string>(){"OOO", "III"}
+        };
+
+        //Ejecucion
+        bool registrado = _service.RegistrarJefeCarrera(nuevoJefe, context, out string mensaje);
+       
+        //Validacion
+        Assert.That(!registrado);
+        Assert.That(mensaje, Is.EqualTo("Hubo un error al selecccionar las carreras. Intentelo otra vez"));
     }
 
     
