@@ -153,7 +153,6 @@ public class UsuarioServiceTest
         Assert.That(usuarioCI, Is.EqualTo("-1"));
     }
 
-
     private void SeedDatabase()
     {
         List<Usuario> usuarios = new List<Usuario>(){
