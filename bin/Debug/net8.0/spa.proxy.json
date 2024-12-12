@@ -1,8 +1,0 @@
-{
-"SpaProxyServer": {
-"ServerUrl": "http://localhost:44466",
-"LaunchCommand": "npm start",
-"WorkingDirectory": "c:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\Postulacion_Docente\\ClientApp\\",
-"MaxTimeoutInSeconds": "120"
-}
-}
