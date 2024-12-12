@@ -239,3 +239,11 @@ _Pvt_Extensions
 appsettings.json
 /ClientApp/.angular/cache
 /bin
+/bin/
+bin/*
+/bin/Debug/*
+/bin/Debug/net8.0
+/bin/Debug
+/bin/Debug/
+/bin/Debug/net8.0/
+/bin/Debug/net8.0/*
