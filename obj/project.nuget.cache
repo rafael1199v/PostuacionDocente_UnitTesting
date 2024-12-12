@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4NDbqcXrT10=",
+  "dgSpecHash": "AAwwH10r+BA=",
   "success": true,
-  "projectFilePath": "c:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj",
+  "projectFilePath": "C:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

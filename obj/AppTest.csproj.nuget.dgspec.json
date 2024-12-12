@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj": {}
+    "C:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj": {
+    "C:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj",
+        "projectUniqueName": "C:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj",
         "projectName": "AppTest",
-        "projectPath": "c:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj",
+        "projectPath": "C:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\AppTest.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\obj\\",
+        "outputPath": "C:\\Users\\ACER\\Desktop\\Universidad\\Semestre 4\\Diseño de software\\PostulacionDocente\\AppTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
