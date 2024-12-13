@@ -137,6 +137,74 @@ public class PostulacionServiceTest
 
     }
 
+    [Test]
+    public void ConseguirPostulacionesHistorialTest()
+    {
+        //Configuracion
+        List<PostulacionDetallesDTO> postulacionesHistorialEsperadas = new List<PostulacionDetallesDTO>()
+        {
+            new PostulacionDetallesDTO{
+                PostulacionId = 3,
+                TituloMateria = "Pensamiento Critico",
+                Estado = 1,
+                DescripcionEstado = "En revisión",
+                NombreVacante = "Programacion III",
+                DescripcionVacante = "Vacante programacion III",
+                JefeCorreo = "matias@gmail.com",
+                JefeNombre = "Matias"
+            },
+            new PostulacionDetallesDTO{
+                PostulacionId = 4,
+                TituloMateria = "Pensamiento Critico",
+                Estado = 5,
+                DescripcionEstado = "Rechazado",
+                NombreVacante = "Programacion II",
+                DescripcionVacante = "Vacante programacion II",
+                JefeCorreo = "matias@gmail.com",
+                JefeNombre = "Matias"
+            }
+        };
+
+        postulacionesHistorialEsperadas.Sort((x, y) => x.PostulacionId.CompareTo(y.PostulacionId));
+        string CI = "13776453";
+
+        //Ejecucion
+        List<PostulacionDetallesDTO> postulacionesHistorial = _service.ConseguirPostulacionesHistorial(context, CI);
+        postulacionesHistorial.Sort((x, y) => x.PostulacionId.CompareTo(y.PostulacionId));
+
+
+        //Validacion
+        Assert.That(postulacionesHistorial.Count, Is.Not.EqualTo(0));
+        Assert.That(postulacionesHistorial.Count, Is.EqualTo(postulacionesHistorialEsperadas.Count));
+        
+
+        for(int i = 0; i < postulacionesHistorialEsperadas.Count; i++)
+        {
+            Assert.That(postulacionesHistorial?[i].PostulacionId, Is.EqualTo(postulacionesHistorialEsperadas[i].PostulacionId));
+            Assert.That(postulacionesHistorial?[i].TituloMateria, Is.EqualTo(postulacionesHistorialEsperadas[i].TituloMateria));
+            Assert.That(postulacionesHistorial?[i].Estado, Is.EqualTo(postulacionesHistorialEsperadas[i].Estado));
+            Assert.That(postulacionesHistorial?[i].DescripcionVacante, Is.EqualTo(postulacionesHistorialEsperadas[i].DescripcionVacante));
+            Assert.That(postulacionesHistorial?[i].NombreVacante, Is.EqualTo(postulacionesHistorialEsperadas[i].NombreVacante));
+            Assert.That(postulacionesHistorial?[i].DescripcionVacante, Is.EqualTo(postulacionesHistorialEsperadas[i].DescripcionVacante));
+            //La parte de jefe de carrera no se utiliza en el historial
+        }
+
+
+    }
+
+    [Test]
+    public void ConseguirPostulacionesHistorialConCarnetInvalidoTest()
+    {
+        //Configuracion
+        string CI = "-1";
+
+        //Ejecucion
+        List<PostulacionDetallesDTO> postulacionesHistorial = _service.ConseguirPostulacionesHistorial(context, CI);
+
+        //Validacion
+        Assert.That(postulacionesHistorial, Is.Empty);
+    }
+
 
     
     private void SeedDatabase()
@@ -209,7 +277,8 @@ public class PostulacionServiceTest
         {
             new Postulacion{PostulacionId = 1, EstadoId = 1, DocenteId = 1, VacanteId  = 1},
             new Postulacion{PostulacionId = 2, EstadoId = 4, DocenteId = 2, VacanteId = 2},
-            new Postulacion{PostulacionId = 3, EstadoId = 1, DocenteId = 1, VacanteId = 3}
+            new Postulacion{PostulacionId = 3, EstadoId = 1, DocenteId = 1, VacanteId = 3},
+            new Postulacion{PostulacionId = 4, EstadoId = 5, DocenteId = 1, VacanteId = 2}
         };
 
         context.Postulacions.AddRange(postulaciones);
