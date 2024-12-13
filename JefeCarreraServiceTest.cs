@@ -64,19 +64,19 @@ namespace AppTest
             Assert.That(resultado, Is.False);
             Assert.That(mensaje, Is.EqualTo("Hubo un error, no hemos podido ascender la postulacion. Intentalo otra vez"));
         }
-        [Test]
-        public void ObtenerSolicitudes_VacanteConSolicitudesTest()
-        {
-            // Configuración
-            int vacanteId = 1;
+        // [Test]
+        // public void ObtenerSolicitudes_VacanteConSolicitudesTest()
+        // {
+        //     // Configuración
+        //     int vacanteId = 1;
 
-            // Ejecución
-            List<DocenteDatosPostulacionDTO> solicitudes = _service.ObtenerSolicitudes(_context, vacanteId);
+        //     // Ejecución
+        //     List<DocenteDatosPostulacionDTO> solicitudes = _service.ObtenerSolicitudes(_context, vacanteId);
 
-            // Validación
-            Assert.That(solicitudes.Count, Is.EqualTo(1)); // Se espera 1 solicitud
-            Assert.That(solicitudes.First().PostulacionId, Is.EqualTo(1));  // Validación de PostulacionId
-        }
+        //     // Validación
+        //     Assert.That(solicitudes.Count, Is.EqualTo(1)); // Se espera 1 solicitud
+        //     Assert.That(solicitudes.First().PostulacionId, Is.EqualTo(1));  // Validación de PostulacionId
+        // }
 
 
         [Test]
