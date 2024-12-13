@@ -4,5 +4,5 @@
 
 # Paquetes necesarios
 ```
-dotnet add package Microsoft.EntityFrameworkCore.InMemory
+dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 7.0
 ```
