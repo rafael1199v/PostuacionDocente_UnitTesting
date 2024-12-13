@@ -44,11 +44,11 @@ namespace AppTest
 
             // Validación
             Assert.That(resultado, Is.True);
-            Assert.That(mensaje, Is.EqualTo("Solicitud ascendido correctamente."));
+            Assert.That(mensaje, Is.EqualTo("Postulacion ascendida correctamente"));
 
             // Verifica que el estado haya sido actualizado correctamente
             var postulacion = _context.Postulacions.Include(p => p.Estado).FirstOrDefault(p => p.PostulacionId == postulacionId);
-            Assert.That(postulacion?.Estado.Mensaje, Is.EqualTo("En revisión"));
+            Assert.That(postulacion?.Estado.Mensaje, Is.EqualTo("Exposición"));
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace AppTest
 
             // Validación
             Assert.That(resultado, Is.False);
-            Assert.That(mensaje, Is.EqualTo("No se encontró la postulación especificada."));
+            Assert.That(mensaje, Is.EqualTo("Hubo un error, no hemos podido ascender la postulacion. Intentalo otra vez"));
         }
         [Test]
         public void ObtenerSolicitudes_VacanteConSolicitudesTest()
@@ -104,10 +104,13 @@ namespace AppTest
             };
 
 
+            _context.Estados.AddRange(estados);
+
             // Sembrar datos iniciales
             List<Usuario> usuarios = new List<Usuario>()
             {
-                new Usuario { UsuarioId = 1, Nombre = "Rafael", Ci = "13776453", FechaNacimiento = DateTime.Now.AddYears(-30), NumeroTelefono = "7648909", Correo = "rafael@gmail.com", Contrasenha = "1234" }
+                new Usuario { UsuarioId = 1, Nombre = "Rafael", Ci = "13776453", FechaNacimiento = DateTime.Now.AddYears(-30), NumeroTelefono = "7648909", Correo = "rafael@gmail.com", Contrasenha = "1234" },
+                new Usuario { UsuarioId = 2, Nombre = "Daniel", Ci = "13774453", FechaNacimiento = DateTime.Now.AddYears(-30), NumeroTelefono = "8648909", Correo = "daniel@gmail.com", Contrasenha = "1234" }
             };
 
             _context.Usuarios.AddRange(usuarios);
@@ -119,19 +122,30 @@ namespace AppTest
 
             _context.JefeCarreras.AddRange(jefes);
 
+            List<Docente> docentes = new List<Docente>()
+            {
+                new Docente {DocenteId = 1, Especialidad = "Computacion grafica", Experiencia = 3, DescripcionPersonal = "Hola soy daniel", Grado = "Ingeniero", UsuarioId = 2}
+            };
+
+            _context.Docentes.AddRange(docentes);
+
             List<Vacante> vacantes = new List<Vacante>
             {
                 new Vacante { VacanteId = 1, NombreVacante = "Programación", FechaInicio = DateTime.Now.AddDays(-10), FechaFin = DateTime.Now.AddDays(10), JefeCarreraId = 1 }
             };
 
+
             _context.Vacantes.AddRange(vacantes);
 
             List<Postulacion> postulaciones = new List<Postulacion>
             {
-                new Postulacion { PostulacionId = 1, VacanteId = 1, DocenteId = 1, Estado = estados.FirstOrDefault(e => e.Mensaje == "Pendiente")}
+                new Postulacion { PostulacionId = 1, VacanteId = 1, DocenteId = 1, EstadoId = 1}
             };
 
             _context.Postulacions.AddRange(postulaciones);
+
+
+    
 
             _context.SaveChanges();
         }
