@@ -212,14 +212,16 @@ public class PostulacionServiceTest
         List<Usuario> usuarios = new List<Usuario>(){
             new Usuario{ UsuarioId = 1, Nombre = "Rafael", Ci = "13776453", FechaNacimiento = DateTime.Now.AddDays(-100), NumeroTelefono = "7648909", Correo = "rafael1199v@gmail.com", Contrasenha = "1234"},
             new Usuario{ UsuarioId = 2, Nombre = "Daniel", Ci = "11111111", FechaNacimiento = DateTime.Now.AddDays(-500), NumeroTelefono = "7638909", Correo = "daniel@gmail.com", Contrasenha = "12345"},
-            new Usuario{ UsuarioId = 3, Nombre = "Matias", Ci = "22222222", FechaNacimiento = DateTime.Now.AddDays(-1000), NumeroTelefono = "7248909", Correo = "matias@gmail.com", Contrasenha = "12346"}
+            new Usuario{ UsuarioId = 3, Nombre = "Matias", Ci = "22222222", FechaNacimiento = DateTime.Now.AddDays(-1000), NumeroTelefono = "7248909", Correo = "matias@gmail.com", Contrasenha = "12346"},
+            new Usuario{ UsuarioId = 4, Nombre = "Examen", Ci = "99999999", FechaNacimiento = DateTime.Now.AddDays(-1000), NumeroTelefono = "9999999", Correo = "examen@gmail.com", Contrasenha = "12346"}
         };
 
         context.Usuarios.AddRange(usuarios);
 
         List<Docente> docentes = new List<Docente>(){
             new Docente {DocenteId = 1, Especialidad = "Programacion", Experiencia = 0, DescripcionPersonal = "Hola soy rafael", Grado = "Ingeniero", UsuarioId = 1},
-            new Docente {DocenteId = 2, Especialidad = "Computacion grafica", Experiencia = 3, DescripcionPersonal = "Hola soy daniel", Grado = "Ingeniero", UsuarioId = 2}
+            new Docente {DocenteId = 2, Especialidad = "Computacion grafica", Experiencia = 3, DescripcionPersonal = "Hola soy daniel", Grado = "Ingeniero", UsuarioId = 2},
+            new Docente {DocenteId = 3, Especialidad = "Examen final", Experiencia = 3, DescripcionPersonal = "Hola soy examen final", Grado = "Final", UsuarioId = 4}
         };
 
 
